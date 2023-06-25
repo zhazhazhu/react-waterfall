@@ -1,4 +1,4 @@
-import deepMerge from "deepmerge";
+import { mergeWith } from 'lodash-es'
 import { debounce, loadAsyncImage, throttle } from "../libs/utils";
 import animationMap from "../animations/index";
 import { options as defaultOptions } from "./default";
@@ -11,7 +11,7 @@ export default class Waterfall {
   private eventStore: any = {};
 
   constructor(options: TOptions) {
-    this.options = deepMerge(defaultOptions, options);
+    this.options = mergeWith(defaultOptions, options);
     this.init();
   }
 
